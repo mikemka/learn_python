@@ -1,0 +1,15 @@
+.DS_Store
+venv
+__pycache__
+db.sqlite3
+.env
+.bashrc
+.cache/
+.gitconfig
+.local/
+.profile
+.pythonstartup.py
+.vimrc
+.virtualenvs/
+README.txt
+staticfiles/
