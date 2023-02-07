@@ -1,0 +1,39 @@
+body {
+    --custom: #E94F37;
+    --custom-dark: #393E41;
+}
+
+.btn-custom {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--custom);
+    --bs-btn-border-color: var(--custom);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--custom);
+    --bs-btn-hover-border-color: var(--custom);
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--custom);
+    --bs-btn-active-border-color: var(--custom);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--custom);
+    --bs-btn-disabled-border-color: var(--custom);
+}
+
+.bg-dark-custom {
+    --bs-bg-opacity: 1;
+    background: var(--custom-dark) !important;
+    color: #ffffff96;
+}
+
+.bg-custom {
+    background-color: var(--custom);
+    color: #fff;
+}
+
+.btn-group-xl>.btn, .btn-xl {
+    --bs-btn-padding-y: 0.8rem;
+    --bs-btn-padding-x: 1.5rem;
+    --bs-btn-font-size: 1.5rem;
+    --bs-btn-border-radius: 0.8rem;
+}

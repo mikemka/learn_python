@@ -1,30 +1,30 @@
-from ast import literal_eval
-from dotenv import load_dotenv
-from os import getenv
-from pathlib import Path
+import ast
+import dotenv
+import os
+import pathlib
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
 
 DOTENV_PATH = BASE_DIR / '.env'
 
 if DOTENV_PATH.exists():
-    load_dotenv(DOTENV_PATH)
+    dotenv.load_dotenv(DOTENV_PATH)
 
-SECRET_KEY = getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = literal_eval(getenv('DEBUG'))
+DEBUG = ast.literal_eval(os.getenv('DEBUG'))
 
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    getenv('HOST'),
+    os.getenv('HOST'),
 ]
 
 INTERNAL_IPS = [
     'localhost',
     '127.0.0.1',
-    getenv('HOST'),
+    os.getenv('HOST'),
 ]
 
 INSTALLED_APPS = [

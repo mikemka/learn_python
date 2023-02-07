@@ -1,5 +1,78 @@
 {% extends 'includes/base.html' %}
 
+{% load static %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{% static 'css/fullpage.min.css' %}">
+{% endblock head_extra %}
+
 {% block content %}
-python
+<div id="fullpage">
+    <div class="section bg-dark text-secondary">
+        <div class="px-4 text-center">
+            <h1 class="display-2 fw-bold text-white">Python-хэндбук</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-3">
+                    Бесплатный онлайн-учебник по Python.<br>
+                    Позволит овладеть базовым синтаксисом языка программирования.
+                    Объяснит принципы разработки ПО.
+                </p>
+                <p class="mb-2">
+                    <button onclick="fullpage_api.moveSectionDown();" class="btn btn-lg btn-custom my-1">
+                        Узнать подробнее
+                    </button>
+                    <a href="#" class="btn btn-lg btn-outline-light my-1">Начать учиться</a>
+                </p>
+            </div>
+            <p class="display-6 mx-0 my-0" onclick="fullpage_api.moveSectionDown();">
+                <i class="bi bi-chevron-compact-down"></i>
+            </p>
+        </div>
+    </div>
+    
+    <div class="section bg-custom">
+        <div class="container text-center">
+            <h2 class="display-2 fw-bold mb-4">Научим</h1>
+            <div class="row">
+                <div class="col-sm-4 col-12">
+                    <p class="display-1"><i class="bi bi-filetype-py"></i></p>
+                    <p class="lead">
+                        Основным конструкциям языка программирования
+                    </p>
+                </div>
+                <div class="col-sm-4 col-12">
+                    <p class="display-1"><i class="bi bi-gear"></i></p>
+                    <p class="lead">
+                        Проектировать логику собственных приложений
+                    </p>
+                </div>
+                <div class="col-sm-4 col-12">
+                    <p class="display-1"><i class="bi bi-folder-plus"></i></p>
+                    <p class="lead">
+                        Использовать стандартный набор библиотек, сторонние фреймворки
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section text-center bg-dark text-white">
+        <h2 class="display-2 fw-bold mb-4">Заинтересовались?</h2>
+        <a href="#" class="btn btn-custom btn-xl">Начать учиться</a>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <p class="lead">
+                Developed with 💗 by <a href="//mkme.ml/" target="_blank">@mikemka</a>
+            </p>
+            <p class="lead">
+                GitHub <a href="//github.com/mikemka/learn_python">repository</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/fullpage.min.js' %}"></script>
+<script>new fullpage('#fullpage', {credits: {label: '&nbsp;'}});</script>
 {% endblock content %}
