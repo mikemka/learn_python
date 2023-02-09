@@ -8,7 +8,7 @@
 
 {% block content %}
 <div id="fullpage">
-    <div class="section bg-dark text-secondary">
+    <div class="section bg-dark text-secondary-custom">
         <div class="px-4 text-center">
             <h1 class="display-2 fw-bold text-white">Python-хэндбук</h1>
             <div class="col-lg-6 mx-auto">
@@ -21,7 +21,9 @@
                     <button onclick="fullpage_api.moveSectionDown();" class="btn btn-lg btn-custom my-1">
                         Узнать подробнее
                     </button>
-                    <a href="#" class="btn btn-lg btn-outline-light my-1">Начать учиться</a>
+                    <a href="{% url 'course_overview' %}" class="btn btn-lg btn-outline-light my-1">
+                        Начать учиться
+                    </a>
                 </p>
             </div>
             <p class="display-6 mx-0 my-0" onclick="fullpage_api.moveSectionDown();">
@@ -53,26 +55,32 @@
                     </p>
                 </div>
             </div>
+            <p class="display-6 mx-0 my-0" onclick="fullpage_api.moveSectionDown();">
+                <i class="bi bi-chevron-compact-down"></i>
+            </p>
         </div>
     </div>
 
     <div class="section text-center bg-dark text-white">
-        <h2 class="display-2 fw-bold mb-4">Заинтересовались?</h2>
-        <a href="#" class="btn btn-custom btn-xl">Начать учиться</a>
+        <h2 class="display-2 fw-bold mb-4" style="word-break: break-all;">Заинтересовались?</h2>
+        <a href="{% url 'course_overview' %}" class="btn btn-custom btn-xl">Начать учиться</a>
     </div>
 
-    <div class="section">
+    <div class="section bg-black text-white">
         <div class="container">
-            <p class="lead">
-                Developed with 💗 by <a href="//mkme.ml/" target="_blank">@mikemka</a>
-            </p>
-            <p class="lead">
-                GitHub <a href="//github.com/mikemka/learn_python">repository</a>
-            </p>
+<pre>
+<code><span style="color: #0f0;">learn@python</span> <span style="color: #0d6efd;">~ $</span> about</code>
+<code>?&gt; Developed with &lt;3 by <a href="//mkme.ml/" target="_blank" class="text-decoration-none">@mikemka</a></code>
+<code>?&gt; Our GitHub         <a href="//github.com/mikemka/learn_python" target="_blank" class="text-decoration-none">repository</a></code>
+<code>?&gt; Made with         <a href="//alvarotrigo.com/fullPage/" target="_blank" class="text-decoration-none">fullPage.js</a></code>
+<code><span style="color: #0f0;">learn@python</span> <span style="color: #0d6efd;">~ $</span><span style="font-size: 150%;"> </span><span class="blink">▂</span></code>
+</pre>
         </div>
     </div>
 </div>
 
 <script src="{% static 'js/fullpage.min.js' %}"></script>
-<script>new fullpage('#fullpage', {credits: {label: '&nbsp;'}});</script>
+<script>
+    new fullpage('#fullpage', {credits: {label: '&nbsp;'}});
+</script>
 {% endblock content %}

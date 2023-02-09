@@ -3,5 +3,5 @@ import main.views
 
 
 urlpatterns = [
-    django.urls.path('', main.views.homepage),
+    django.urls.path('', main.views.homepage, name='homepage'),
 ]

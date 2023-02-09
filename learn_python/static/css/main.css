@@ -20,6 +20,10 @@ body {
     --bs-btn-disabled-border-color: var(--custom);
 }
 
+.text-secondary-custom {
+    color: #c0c0c0;
+}
+
 .bg-dark-custom {
     --bs-bg-opacity: 1;
     background: var(--custom-dark) !important;
@@ -32,8 +36,16 @@ body {
 }
 
 .btn-group-xl>.btn, .btn-xl {
-    --bs-btn-padding-y: 0.8rem;
+    --bs-btn-padding-y: 0.7rem;
     --bs-btn-padding-x: 1.5rem;
     --bs-btn-font-size: 1.5rem;
     --bs-btn-border-radius: 0.8rem;
+}
+
+.blink {animation: blink 1000ms alternate infinite}
+@keyframes blink {
+    0% {opacity: 1}
+    50.5999% {opacity: 1}
+    50.6% {opacity: 0}
+    100% {opacity: 0}
 }
