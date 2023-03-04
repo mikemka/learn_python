@@ -2,24 +2,75 @@ import django.db.models
 import course.validators
 
 
+class Course(django.db.models.Model):
+    title = django.db.models.CharField(
+        verbose_name='Название', 
+        max_length=150,
+        unique=True,
+    )
+    entry = django.db.models.TextField(
+        verbose_name='Вступление',
+    )
+    
+    class Meta:
+        verbose_name = 'курс'
+        verbose_name_plural = 'курс'
+    
+    def __str__(self) -> str:
+        return self.title
+
+
+class Lesson(django.db.models.Model):
+    title = django.db.models.CharField(
+        verbose_name='Название', 
+        max_length=150,
+        unique=True,
+    )
+    theory = django.db.models.TextField(
+        verbose_name='Теория',
+    )
+    course = django.db.models.ForeignKey(
+        verbose_name='Курс',
+        to=Course,
+        on_delete=django.db.models.CASCADE,
+        null=True,
+        blank=True,
+    )
+    
+    class Meta:
+        verbose_name = 'урок'
+        verbose_name_plural = 'уроки'
+    
+    def __str__(self) -> str:
+        return self.title
+
+
 class Task(django.db.models.Model):
     title = django.db.models.CharField(
         verbose_name='Название', 
         max_length=150,
         unique=True,
     )
+    difficulty = django.db.models.IntegerField(
+        verbose_name='Сложность',
+        choices=(
+            (1, '*'),
+            (2, '**'),
+            (3, '***'),
+        ),
+        default=1,
+    )
     time_limit = django.db.models.IntegerField(
-        verbose_name='Ограничение времени (секунд)',
+        verbose_name='Ограничение времени',
         default=1,
         validators=[course.validators.validate_more_zero],
+        help_text='(секунд)',
     )
     memory_limit = django.db.models.IntegerField(
-        verbose_name='Ограничение памяти (Mb)',
+        verbose_name='Ограничение памяти',
         default=64,
         validators=[course.validators.validate_more_zero],
-    )
-    text = django.db.models.TextField(
-        verbose_name='Текст задания',
+        help_text='(Mb)',
     )
     input_type = django.db.models.CharField(
         verbose_name='Ввод',
@@ -31,6 +82,9 @@ class Task(django.db.models.Model):
         max_length=100,
         default='стандартный вывод или output.txt',
     )
+    text = django.db.models.TextField(
+        verbose_name='Текст задания',
+    )
     input_format = django.db.models.TextField(
         verbose_name='Формат ввода',
         blank=True,
@@ -41,10 +95,17 @@ class Task(django.db.models.Model):
         blank=True,
         null=True,
     )
+    lesson = django.db.models.ForeignKey(
+        verbose_name='Урок',
+        to=Lesson,
+        on_delete=django.db.models.CASCADE,
+        null=True,
+        blank=True,
+    )
     
     class Meta:
-        verbose_name = 'Задание'
-        verbose_name_plural = 'Задания'
+        verbose_name = 'задание'
+        verbose_name_plural = 'задания'
     
     def __str__(self) -> str:
         return self.title
@@ -58,14 +119,14 @@ class Task(django.db.models.Model):
             return f'{self.time_limit} секунды'
 
     get_time_limit.allow_tags = True
-    get_time_limit.short_description = 'Ограничение времени'
+    get_time_limit.short_description = 'Время'
 
     def get_memory_limit(self) -> str:
         return f'{self.memory_limit}Mb'
     
     get_memory_limit.allow_tags = True
-    get_memory_limit.short_description = 'Ограничение памяти'
-
+    get_memory_limit.short_description = 'Память'
+    
 
 class Example(django.db.models.Model):
     input_data = django.db.models.TextField(
@@ -82,11 +143,13 @@ class Example(django.db.models.Model):
         verbose_name='Задание',
         to=Task,
         on_delete=django.db.models.CASCADE,
+        null=True,
+        blank=True,
     )
     
     class Meta:
-        verbose_name = 'Пример'
-        verbose_name_plural = 'Примеры'
+        verbose_name = 'пример'
+        verbose_name_plural = 'примеры'
     
     def __str__(self) -> str:
-        return self.id
+        return str(self.id)
