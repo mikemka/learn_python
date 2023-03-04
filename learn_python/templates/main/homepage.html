@@ -38,21 +38,15 @@
             <div class="row">
                 <div class="col-sm-4 col-12">
                     <p class="display-1"><i class="bi bi-filetype-py"></i></p>
-                    <p class="lead">
-                        Основным конструкциям языка программирования
-                    </p>
+                    <p class="lead">Основным конструкциям языка программирования</p>
                 </div>
                 <div class="col-sm-4 col-12">
                     <p class="display-1"><i class="bi bi-gear"></i></p>
-                    <p class="lead">
-                        Проектировать логику собственных приложений
-                    </p>
+                    <p class="lead">Проектировать логику собственных приложений</p>
                 </div>
                 <div class="col-sm-4 col-12">
                     <p class="display-1"><i class="bi bi-folder-plus"></i></p>
-                    <p class="lead">
-                        Использовать стандартный набор библиотек, сторонние фреймворки
-                    </p>
+                    <p class="lead">Использовать стандартный набор библиотек, сторонние фреймворки</p>
                 </div>
             </div>
             <p class="display-6 mx-0 my-0" onclick="fullpage_api.moveSectionDown();">
@@ -62,8 +56,11 @@
     </div>
 
     <div class="section text-center bg-dark text-white">
-        <h2 class="display-2 fw-bold mb-4" style="word-break: break-all;">Заинтересовались?</h2>
-        <a href="{% url 'course_overview' %}" class="btn btn-custom btn-xl">Начать учиться</a>
+        <h2 class="display-2 fw-bold mb-3" style="word-break: break-all;">Интересно?</h2>
+        <p><a href="{% url 'course_overview' %}" class="btn btn-custom btn-xl">Начать учиться</a></p>
+        <p class="display-6 mx-0 my-0" onclick="fullpage_api.moveSectionDown();">
+            <i class="bi bi-chevron-compact-down"></i>
+        </p>
     </div>
 
     <div class="section bg-black text-white">
@@ -72,8 +69,9 @@
 <code><span style="color: #0f0;">learn@python</span> <span style="color: #0d6efd;">~ $</span> about</code>
 <code>?&gt; Developed with &lt;3 by <a href="//mkme.ml/" target="_blank" class="text-decoration-none">@mikemka</a></code>
 <code>?&gt; Our GitHub         <a href="//github.com/mikemka/learn_python" target="_blank" class="text-decoration-none">repository</a></code>
-<code>?&gt; Made with         <a href="//alvarotrigo.com/fullPage/" target="_blank" class="text-decoration-none">fullPage.js</a></code>
-<code><span style="color: #0f0;">learn@python</span> <span style="color: #0d6efd;">~ $</span><span style="font-size: 150%;"> </span><span class="blink">▂</span></code>
+<code>?&gt; We're using       <a href="//alvarotrigo.com/fullPage/" target="_blank" class="text-decoration-none">fullPage.js</a></code>
+<code>?&gt; Icons made by        <a href="https://www.flaticon.com/free-icons/coding-book" title="coding book icons" target="_blank" class="text-decoration-none">Flaticon</a></code>
+<code><span style="color: #0f0;">learn@python</span> <span style="color: #0d6efd;">~ $</span><span style="font-size: 130%;"> </span><span class="blink">▂</span></code>
 </pre>
         </div>
     </div>
@@ -81,6 +79,6 @@
 
 <script src="{% static 'js/fullpage.min.js' %}"></script>
 <script>
-    new fullpage('#fullpage', {credits: {label: '&nbsp;'}});
+    new fullpage('#fullpage', {credits: {label: 'fullPage.js'}});
 </script>
 {% endblock content %}

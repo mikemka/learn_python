@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" prefix="og: //ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'fonts/bootstrap-icons.css' %}">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'icon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'icon/site.webmanifest' %}">
+    {% block og_meta %}
+    <meta property="og:title" content="Python-хэндбук · Стань программистом прямо сейчас!"/>
+    <meta property="og:description" content="Бесплатный онлайн-учебник по Python"/>
+    {% endblock og_meta %}
     {% block head_extra %}{% endblock head_extra %}
 </head>
 <body>
