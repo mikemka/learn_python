@@ -24,6 +24,11 @@ body {
     color: #c0c0c0;
 }
 
+.accent-custom {
+    background: var(--custom) !important;
+    color: #fff;
+}
+
 .bg-dark-custom {
     --bs-bg-opacity: 1;
     background: var(--custom-dark) !important;

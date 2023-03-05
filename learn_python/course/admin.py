@@ -1,5 +1,5 @@
 from django.contrib import admin
-from course.models import Example, Task, Lesson, Course
+from course.models import Example, Task, Lesson, Course, Tag
 
 
 admin.AdminSite.site_header = 'Cервисы администрирования'
@@ -26,4 +26,9 @@ class LessonAdmin(admin.ModelAdmin):
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ('title',)
+    list_display = ('title', 'is_published')
+
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('name',)

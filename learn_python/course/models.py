@@ -1,5 +1,29 @@
 import django.db.models
 import course.validators
+import colorfield.fields
+
+
+class Tag(django.db.models.Model):
+    name = django.db.models.CharField(
+        verbose_name='Название',
+        max_length=50,
+        unique=True,
+    )
+    background_color = colorfield.fields.ColorField(
+        verbose_name='Цвет фона',
+        default='#E94F37',
+    )
+    text_color = colorfield.fields.ColorField(
+        verbose_name='Цвет текста',
+        default='#FFFFFF',
+    )
+    
+    class Meta:
+        verbose_name = 'тег'
+        verbose_name_plural = 'теги'
+    
+    def __str__(self) -> str:
+        return self.name
 
 
 class Course(django.db.models.Model):
@@ -11,7 +35,15 @@ class Course(django.db.models.Model):
     entry = django.db.models.TextField(
         verbose_name='Вступление',
     )
-    
+    tags = django.db.models.ManyToManyField(
+        verbose_name='Теги',
+        to=Tag,
+    )
+    is_published = django.db.models.BooleanField(
+        verbose_name='Опубликовано',
+        default=True,
+    )
+
     class Meta:
         verbose_name = 'курс'
         verbose_name_plural = 'курс'
@@ -24,7 +56,6 @@ class Lesson(django.db.models.Model):
     title = django.db.models.CharField(
         verbose_name='Название', 
         max_length=150,
-        unique=True,
     )
     theory = django.db.models.TextField(
         verbose_name='Теория',
@@ -49,7 +80,6 @@ class Task(django.db.models.Model):
     title = django.db.models.CharField(
         verbose_name='Название', 
         max_length=150,
-        unique=True,
     )
     difficulty = django.db.models.IntegerField(
         verbose_name='Сложность',
