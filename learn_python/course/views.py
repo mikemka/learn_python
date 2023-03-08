@@ -18,13 +18,15 @@ def overview(request):
 
 def introduction(request, pk: int):
     template_name = 'course/introduction.html'
+    
     context = {
         'course': django.shortcuts.get_object_or_404(
-            course.models.Course,
+            course.models.Course.objects,
             id=pk,
             is_published=True,
         ),
     }
+    context['lessons'] = course.models.Lesson.objects.filter(course=context['course'])
     
     return django.shortcuts.render(
         request=request,

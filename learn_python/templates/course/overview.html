@@ -7,10 +7,10 @@
     <h1 class="display-2 fw-bold my-4">Выберите свой курс</h1>
     <div class="row">
         {% for course in courses %}
-        <div class="col col-sm-12 col-md-6 col-lg-6 col-xl-4">
+        <div class="col-12 col-md-6 col-lg-6 col-xl-4">
             <a href="{% url 'course_introduction' pk=course.id %}" class="text-decoration-none">
-                <div class="card mt-2 mb-3 bg-dark-custom text-white">
-                    <div class="card-body">
+                <div class="card mt-2 mb-3 bg-dark-custom text-white w-100">
+                    <div class="card-body w-100">
                         <h2 class="h3 fw-semibold">{{ course.title }}</h2>
                         <p class="lead mb-1">{{ course.lead }}</p>
                         <p class="lead">

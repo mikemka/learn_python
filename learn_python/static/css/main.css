@@ -20,6 +20,16 @@ body {
     --bs-btn-disabled-border-color: var(--custom);
 }
 
+.breadcrumb a {
+    color: var(--custom) !important;
+    text-decoration: none !important;
+}
+
+.breadcrumb a:hover {
+    color: var(--custom) !important;
+    text-decoration: underline !important;
+}
+
 .text-secondary-custom {
     color: #c0c0c0;
 }
