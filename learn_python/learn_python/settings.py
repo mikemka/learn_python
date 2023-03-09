@@ -119,3 +119,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+TINYMCE_JS_URL = STATIC_URL + 'tinymce/tinymce.min.js'
+
+TINYMCE_JS_ROOT = STATIC_ROOT / 'tinymce'
