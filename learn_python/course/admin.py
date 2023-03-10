@@ -4,7 +4,7 @@ from course.models import Example, Task, Lesson, Course, Tag
 
 admin.AdminSite.site_header = 'Cервисы администрирования'
 admin.AdminSite.site_title = 'Cервисы администрирования'
-admin.AdminSite.index_title = 'Cервисы администрирования'
+admin.AdminSite.index_title = 'Python-хендбук'
 
 
 @admin.register(Task)
@@ -31,4 +31,7 @@ class CourseAdmin(admin.ModelAdmin):
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    list_display = ('name',)
+    list_display = ('name', 'render_tag', 'render_tag_outline')
+    list_display_links = ('name', 'render_tag', 'render_tag_outline')
+    fields = ('name', 'background_color', 'render_tag', 'render_tag_outline')
+    readonly_fields = ('render_tag', 'render_tag_outline')

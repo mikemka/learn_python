@@ -17,7 +17,7 @@
                             {% for tag in course.tags.all %}
                             <span
                                 class="badge rounded-pill"
-                                style="background-color: {{ tag.background_color }}; color: {{ tag.text_color }}"
+                                style="background-color: {{ tag.background_color }}"
                             >{{ tag.name }}</span>
                             {% endfor %}
                         </p>

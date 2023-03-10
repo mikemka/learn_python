@@ -1,4 +1,5 @@
 import django.db.models
+import django.utils.safestring
 import course.validators
 import colorfield.fields
 import tinymce.models
@@ -14,10 +15,6 @@ class Tag(django.db.models.Model):
         verbose_name='Цвет фона',
         default='#E94F37',
     )
-    text_color = colorfield.fields.ColorField(
-        verbose_name='Цвет текста',
-        default='#FFFFFF',
-    )
     
     class Meta:
         verbose_name = 'тег'
@@ -25,6 +22,27 @@ class Tag(django.db.models.Model):
     
     def __str__(self) -> str:
         return self.name
+    
+    def render_tag(self) -> str:
+        return django.utils.safestring.mark_safe(
+            f'<span style="background-color: {self.background_color}; padding: 0.35em 0.65em;'
+            'font-size: 1em; font-weight: 700; line-height: 1.5; color: #fff; text-align: center;'
+            f'white-space: nowrap; vertical-align: baseline; border-radius: 50rem;">{self.name}</span>'
+        )
+    
+    render_tag.short_description = 'тег'
+    render_tag.allow_tags = True
+
+    def render_tag_outline(self) -> str:
+        return django.utils.safestring.mark_safe(
+            f'<span style="padding: 0.35em 0.65em; background-color: #212529'
+            'font-size: 1em; font-weight: 700; line-height: 1.5; color: #fff; text-align: center;'
+            'white-space: nowrap; vertical-align: baseline; border-radius: 50rem;'
+            f'border: 2px solid {self.background_color};">{self.name}</span>'
+        )
+    
+    render_tag_outline.short_description = 'контур'
+    render_tag_outline.allow_tags = True
 
 
 class Course(django.db.models.Model):
