@@ -10,18 +10,30 @@
             <li class="breadcrumb-item">
                 <a href="{% url 'course_overview' %}">Все курсы</a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">{{ course.title }}</li>
+            <li class="breadcrumb-item active mb-3" aria-current="page">{{ course.title }}</li>
         </ol>
     </nav>
 
-    <div class="card mt-5 mb-3 bg-dark-custom text-white">
+    <div class="card mt-4 mb-3 bg-dark-custom text-white">
         <div class="card-body">
             <div style="font-size: 110%;">{{ course.introduction|safe }}</div>
         </div>
     </div>
+    
+    {% if lessons %}
     <p><a class="btn btn-custom fw-bold" href="#">Начать прохождение</a></p>
 
-    <section class="my-4">
+    <section class="mt-4 pt-3">
+        <h2 class="display-5 fw-bold">Содержание курса</h2>
+        <ul>
+            {% for lesson in lessons %}
+            <li class="lead">{{ lesson.title }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+
+    <section class="mt-4 pt-3">
         <p class="mb-0">Tags:</p>
         <p class="lead">
             {% for tag in course.tags.all %}
@@ -32,14 +44,5 @@
             {% endfor %}
         </p>
     </section>
-
-    {% if lessons %}
-    <h2 class="h1">Содержание курса</h2>
-    <ul>
-        {% for lesson in lessons %}
-        <li>{{ lesson.title }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
 </div>
 {% endblock content %}
