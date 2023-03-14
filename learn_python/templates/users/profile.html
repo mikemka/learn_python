@@ -8,9 +8,14 @@
     <div class="container d-flex flex-column justify-content-center" style="flex-grow: 1;">
         <div class="container col-lg-5 col-sm-8 bg-dark-custom card">
             <div class="card-body py-4 text-white">
-                <h1 class="display-5 fw-bold mb-1">@{{ request.user.username }}</h1>
+                <h1 class="display-5 fw-bold mb-1">@{{ user.username }}</h1>
                 <p>В разработке</p>
-                <a href="{% url 'logout' %}" class="btn btn-custom">Выйти из аккаунта</a>
+                <p>
+                    <a href="{% url 'logout' %}" class="btn btn-custom">Выйти из аккаунта</a>
+                    {% if user.is_superuser %}
+                    <a href="{% url 'admin:index' %}" class="btn btn-outline-custom">Панель администрирования</a>
+                    {% endif %}
+                </p>
             </div>
         </div>
     </div>
