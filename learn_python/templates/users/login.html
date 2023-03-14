@@ -1,0 +1,33 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex flex-column" style="min-height: 100vh;">
+    {% include 'includes/header.html' %}
+    
+    <div class="container d-flex flex-column justify-content-center" style="flex-grow: 1;">
+        <div class="container col-lg-5 col-sm-8 bg-dark-custom card">
+            <div class="card-body py-4 text-white">
+                <h1 class="display-5 fw-bold mb-0">Вход в аккаунт</h1>
+                <p class="mb-3">
+                    Нет аккаунта?
+                    <a href="{% url 'login' %}" class="link-custom">Зарегистрируйтесь</a>
+                </p>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mt-3 mb-2">
+                        <label class="required form-label" for="id_username">Имя пользователя:</label>
+                        <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" class="form-control bg-secondary-custom border-0 text-white">
+                    </div>
+                    <div class="mb-3">
+                        <label class="required form-label" for="id_password">Пароль:</label>
+                        <input type="password" name="password" autocomplete="current-password" required="" id="id_password" class="form-control bg-secondary-custom border-0 text-white">
+                    </div>
+                    <button type="submit" class="btn btn-custom mt-1">Войти</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
