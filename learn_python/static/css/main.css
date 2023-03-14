@@ -2,7 +2,6 @@ body {
     --custom: #E94F37;
     --custom-dark: #393E41;
 }
-
 .btn-custom {
     --bs-btn-color: #fff;
     --bs-btn-bg: var(--custom);
@@ -19,33 +18,27 @@ body {
     --bs-btn-disabled-bg: var(--custom);
     --bs-btn-disabled-border-color: var(--custom);
 }
-
 .breadcrumb a, a.link-custom {
     color: var(--custom) !important;
     text-decoration: none !important;
 }
-
 .breadcrumb a:hover, a.link-custom:hover {
     color: var(--custom) !important;
     text-decoration: underline !important;
 }
-
 .text-secondary-custom {
     color: #c0c0c0;
 }
-
 .text-custom {
     color: var(--custom) !important;
 }
-
 .border-custom {
     border-color: var(--custom) !important;
 }
-
 .btn-outline-custom {
     --bs-btn-color: #f8f9fa;
     --bs-btn-border-color: #f8f9fa;
-    --bs-btn-hover-color: #000;
+    --bs-btn-hover-color: #f8f9fa;
     --bs-btn-hover-bg: var(--custom);
     --bs-btn-hover-border-color: var(--custom);
     --bs-btn-focus-shadow-rgb: 248,249,250;
@@ -58,36 +51,30 @@ body {
     --bs-btn-disabled-border-color: var(--custom);
     --bs-gradient: none;
 }
-
 .bg-dark {
     background-color: #141414 !important;
 }
-
 .bg-dark-custom {
     background-color: #232323 !important;
 }
 .bg-secondary-custom {
-    background-color: #292929 !important;
+    background-color: #303030 !important;
 }
-
 .bg-dark-custom-old {
     --bs-bg-opacity: 1;
     background: var(--custom-dark) !important;
     color: #ffffff96;
 }
-
 .bg-custom {
     background-color: var(--custom);
     color: #fff;
 }
-
 .btn-group-xl>.btn, .btn-xl {
     --bs-btn-padding-y: 0.7rem;
     --bs-btn-padding-x: 1.5rem;
     --bs-btn-font-size: 1.5rem;
     --bs-btn-border-radius: 0.8rem;
 }
-
 .blink {animation: blink 1000ms alternate infinite}
 @keyframes blink {
     0% {opacity: 1}

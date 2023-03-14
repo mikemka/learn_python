@@ -1,4 +1,5 @@
 {% url 'login' as login_url %}
+{% url 'registration' as registration_url %}
 
 <header class="p-3">
     <div class="container">
@@ -6,14 +7,12 @@
             <ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center mb-md-0">
                 <li><a href="{% url 'homepage' %}" class="nav-link px-2 text-white">Python-хэндбук</a></li>
             </ul>
-
-            <!-- <form class="col-12 col-md-auto mb-3 mb-md-0 me-md-3" role="search">
-                <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Найти..."
-                    aria-label="Search">
-            </form> -->
-
-            {% if request.path != login_url %}
-            <a class="btn btn-outline-custom me-2" href="{% url 'login' %}">Войти</a>
+            {% if request.path != login_url and request.path != registration_url %}
+                {% if request.user.is_authenticated %}
+                <a class="btn btn-outline-custom me-2" href="{% url 'profile' %}">Профиль</a>
+                {% else %}
+                <a class="btn btn-outline-custom me-2" href="{% url 'login' %}">Войти</a>
+                {% endif %}
             {% endif %}
         </div>
     </div>

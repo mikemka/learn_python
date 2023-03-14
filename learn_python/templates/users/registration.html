@@ -8,10 +8,10 @@
     <div class="container d-flex flex-column justify-content-center" style="flex-grow: 1;">
         <div class="container col-lg-5 col-sm-8 bg-dark-custom card">
             <div class="card-body py-4 text-white">
-                <h1 class="display-5 fw-bold mb-1">Вход в аккаунт</h1>
+                <h1 class="display-5 fw-bold mb-1">Регистрация</h1>
                 <p class="mb-4">
-                    Нет аккаунта?
-                    <a href="{% url 'registration' %}" class="link-custom">Зарегистрируйтесь</a>
+                    Уже есть аккаунт?
+                    <a href="{% url 'login' %}" class="link-custom">Войдите</a>
                 </p>
                 <form method="post">
                     {% csrf_token %}
@@ -26,7 +26,7 @@
                         {% endif %}
                     </div>
                     {% endfor %}
-                    <button type="submit" class="btn btn-custom mt-3">Войти</button>
+                    <button type="submit" class="btn btn-custom mt-3">Создать аккаунт</button>
                 </form>
             </div>
         </div>

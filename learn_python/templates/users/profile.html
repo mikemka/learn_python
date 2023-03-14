@@ -1,0 +1,18 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex flex-column" style="min-height: 100vh;">
+    {% include 'includes/header.html' %}
+    
+    <div class="container d-flex flex-column justify-content-center" style="flex-grow: 1;">
+        <div class="container col-lg-5 col-sm-8 bg-dark-custom card">
+            <div class="card-body py-4 text-white">
+                <h1 class="display-5 fw-bold mb-1">@{{ request.user.username }}</h1>
+                <p>В разработке</p>
+                <a href="{% url 'logout' %}" class="btn btn-custom">Выйти из аккаунта</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
