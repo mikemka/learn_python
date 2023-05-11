@@ -40,7 +40,15 @@ def logout_user(request):
 def profile(request):
     template_name = 'users/profile.html'
     
+    if request.method == 'POST':
+        form = users.forms.UpdateUserForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+
+    form = users.forms.UpdateUserForm()
+
     return django.shortcuts.render(
         request=request,
         template_name=template_name,
+        context={'form': form},
     )

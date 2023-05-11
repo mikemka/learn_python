@@ -3,7 +3,7 @@ import django.contrib.auth.forms
 from django.contrib.auth.models import User
 
 
-FORM_ATTRS = {'class': 'form-control bg-secondary-custom border-0 text-white'}
+FORM_ATTRS = {'class': 'form-control'}
 
 
 class RegisterUserForm(django.contrib.auth.forms.UserCreationForm):
@@ -38,3 +38,25 @@ class LoginUserForm(django.contrib.auth.forms.AuthenticationForm):
         label='Пароль',
         widget=forms.PasswordInput(attrs=FORM_ATTRS),
     )
+
+
+class UpdateUserForm(django.forms.ModelForm):
+    first_name = forms.CharField(
+        label='Имя',
+        widget=forms.TextInput(attrs=FORM_ATTRS),
+        required=False,
+    )
+    last_name = forms.CharField(
+        label='Фамилия',
+        widget=forms.TextInput(attrs=FORM_ATTRS),
+        required=False,
+    )
+    email = forms.EmailField(
+        label='Email',
+        widget=forms.EmailInput(attrs=FORM_ATTRS),
+        required=True,
+    )
+    
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')

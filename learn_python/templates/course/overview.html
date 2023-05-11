@@ -4,7 +4,11 @@
 {% include 'includes/header.html' %}
 
 <div class="container">
-    <h1 class="display-2 fw-bold my-4">Выберите свой курс</h1>
+    <h1 class="display-2 fw-bold my-4">
+        {% if user.is_authenticated %}
+        Добро пожаловать, {% if user.first_name %}{{ user.first_name }}{% else %}@{{ user.username }}{% endif %}
+        {% else %}Выберите свой курс{% endif %}
+    </h1>
     <div class="row">
         {% for course in courses %}
         <div class="col-12 col-md-6 col-lg-6 col-xl-4">

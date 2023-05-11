@@ -7,11 +7,33 @@ img {
     height: auto;
     border-radius: 0.2em !important;
 }
-
 pre {
     border-radius: 0.2em !important;
 }
-
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ffffff;
+    background-color: #303030;
+    background-clip: padding-box;
+    border: 1px solid var(--bs-dark);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-control:focus {
+    color: #ffffff;
+    background-color: #303030;
+    border-color: var(--custom);
+    outline: 0;
+    box-shadow: 0 0 0 .25rem #E94F3740;
+}
 .task-difficulty-1::after {content: ' · Базовый уровень'}
 .task-difficulty-2::after {content: ' · Продвинутый уровень'}
 .task-difficulty-3::after {content: ' · Дополнительные задачи'}
