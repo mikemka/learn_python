@@ -13,7 +13,7 @@ img {
 pre {
     border-radius: 0.2em !important;
 }
-.form-control {
+.form-control, .accordion-item {
     display: block;
     width: 100%;
     padding: .375rem .75rem;
@@ -30,12 +30,20 @@ pre {
     border-radius: .375rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+.accordion-button::after {
+    display: none;
+}
 .form-control:focus {
     color: #ffffff;
     background-color: #303030;
     border-color: var(--custom);
     outline: 0;
     box-shadow: 0 0 0 .25rem #E94F3740;
+}
+.accordion-button:not(.collapsed), .accordion-button:focus, .accordion-button {
+    color: var(--custom-dark);
+    background-color: var(--custom-dark);
+    box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--custom-dark);
 }
 .task-difficulty-1::after {content: ' · Базовый уровень'}
 .task-difficulty-2::after {content: ' · Продвинутый уровень'}

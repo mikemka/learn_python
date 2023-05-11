@@ -26,6 +26,9 @@ class TaskAdminForm(django.forms.ModelForm):
     text = django.forms.CharField(
         widget=django.forms.Textarea(attrs={'id': 'richtext_field'}),
     )
+    solution = django.forms.CharField(
+        widget=django.forms.Textarea(attrs={'id': 'richtext_field'}),
+    )
     
     class Meta:
         model = course.models.Task

@@ -71,6 +71,23 @@
                 {% endfor %}
             </table>
             {% endif %}
+
+            {% if task.solution %}
+            <div class="accordion accordion-flush bg-dark-custom" id="accordionFlushExample">
+                <div class="accordion-item bg-dark-custom">
+                    <h2 class="accordion-header bg-dark-custom" id="flush-headingOne">
+                        <button class="accordion-button collapsed bg-dark-custom text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Решение автора
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            {{ task.solution|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 

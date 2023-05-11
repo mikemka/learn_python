@@ -162,6 +162,12 @@ class Task(django.db.models.Model):
         verbose_name='Опубликовано',
         default=True,
     )
+    solution = django.db.models.TextField(
+        verbose_name='Решение автора',
+        default='<pre class="language-python">&nbsp;</pre>',
+        blank=True,
+        null=True,
+    )
 
     class Meta:
         verbose_name = 'задание'
