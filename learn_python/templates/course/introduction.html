@@ -4,8 +4,8 @@
 {% include 'includes/header.html' %}
 
 <div class="container">
-    <h1 class="display-2 fw-bold mt-4 mb-2 text-break">Курс: {{ course.title }}</h1>
-    <nav class="d-none d-sm-block">
+    <h1 class="display-2 fw-bold mt-4 mb-2 text-break">{% if lessons %}Курс: {% endif %}{{ course.title }}</h1>
+    <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="{% url 'course_overview' %}">Все курсы</a>
@@ -21,13 +21,17 @@
     </div>
     
     {% if lessons %}
-    <p><a class="btn btn-custom fw-bold" href="#">Начать прохождение</a></p>
+    <p><a class="btn btn-custom fw-bold" href="{% url 'course_lesson' pk=lessons.first.id  %}">
+        Начать прохождение
+    </a></p>
 
-    <section class="mt-4 pt-3">
-        <h2 class="display-5 fw-bold">Содержание курса</h2>
+    <section class="mt-4 pt-3 course-containment">
+        <h2 class="display-5 fw-bold">Уроки</h2>
         <ul>
             {% for lesson in lessons %}
-            <li class="lead">{{ lesson.title }}</li>
+            <li class="lead">
+                <a href="{% url 'course_lesson' pk=lesson.id  %}">{{ lesson.title }}</a>
+            </li>
             {% endfor %}
         </ul>
     </section>

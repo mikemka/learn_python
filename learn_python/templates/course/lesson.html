@@ -1,0 +1,41 @@
+{% extends 'includes/base.html' %}
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class="container">
+    <h1 class="display-2 fw-bold mt-4 mb-2 text-break">Тема: {{ lesson.title }}</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'course_introduction' pk=lesson.course.id %}">{{ lesson.course.title }}</a>
+            </li>
+            <li class="breadcrumb-item active mb-3" aria-current="page">{{ lesson.title }}</li>
+        </ol>
+    </nav>
+
+    <div class="card mt-4 mb-3 bg-dark-custom text-white">
+        <div class="card-body">
+            <div style="font-size: 110%;">{{ lesson.theory|safe }}</div>
+        </div>
+    </div>
+
+    {% if tasks %}
+    <section class="mt-4 pt-3 course-containment">
+        <h2 class="display-5 fw-bold">Задания</h2>
+        <ul>
+            {% for task in tasks %}
+            <li class="lead">
+                <a
+                    href="{% url 'course_task' pk=task.id  %}"
+                    class="task-difficulty-before-{{ task.difficulty }}"
+                >
+                    {{ task.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+</div>
+{% endblock content %}

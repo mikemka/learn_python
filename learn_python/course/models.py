@@ -90,6 +90,10 @@ class Lesson(django.db.models.Model):
         null=True,
         blank=True,
     )
+    is_published = django.db.models.BooleanField(
+        verbose_name='Опубликовано',
+        default=True,
+    )
     
     class Meta:
         verbose_name = 'урок'
@@ -155,7 +159,11 @@ class Task(django.db.models.Model):
         null=True,
         blank=True,
     )
-    
+    is_published = django.db.models.BooleanField(
+        verbose_name='Опубликовано',
+        default=True,
+    )
+
     class Meta:
         verbose_name = 'задание'
         verbose_name_plural = 'задания'
@@ -198,6 +206,10 @@ class Example(django.db.models.Model):
         on_delete=django.db.models.CASCADE,
         null=True,
         blank=True,
+    )
+    is_published = django.db.models.BooleanField(
+        verbose_name='Опубликовано',
+        default=True,
     )
     
     class Meta:

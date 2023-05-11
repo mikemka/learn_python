@@ -2,6 +2,32 @@ body {
     --custom: #E94F37;
     --custom-dark: #393E41;
 }
+.task-difficulty-1::after {
+    content: ' · Базовый уровень';
+}
+.task-difficulty-2::after {
+    content: ' · Продвинутый уровень';
+}
+.task-difficulty-3::after {
+    content: ' · Дополнительные задачи';
+}
+
+.task-difficulty-before-1::before {
+    content: 'Базовый уровень · ';
+}
+.task-difficulty-before-2::before {
+    content: 'Продвинутый уровень · ';
+}
+.task-difficulty-before-3::before {
+    content: 'Дополнительные задачи · ';
+}
+.course-containment a {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+.course-containment a:hover {
+    color: var(--custom) !important;
+}
 .btn-custom {
     --bs-btn-color: #fff;
     --bs-btn-bg: var(--custom);
@@ -57,6 +83,10 @@ body {
 .bg-dark-custom {
     background-color: #232323 !important;
 }
+.table-dark td, .table-dark table, .table-dark th, .table-dark tr {
+    background-color: #232323 !important;
+}
+table p {margin: 0;}
 .bg-secondary-custom {
     background-color: #303030 !important;
 }

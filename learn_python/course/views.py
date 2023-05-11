@@ -12,7 +12,7 @@ def overview(request):
     return django.shortcuts.render(
         request=request,
         template_name=template_name,
-        context=context
+        context=context,
     )
 
 
@@ -31,5 +31,49 @@ def introduction(request, pk: int):
     return django.shortcuts.render(
         request=request,
         template_name=template_name,
-        context=context
+        context=context,
+    )
+
+
+def lesson(request, pk: int):
+    template_name = 'course/lesson.html'
+    
+    context = {
+        'lesson': django.shortcuts.get_object_or_404(
+            course.models.Lesson.objects,
+            id=pk,
+            is_published=True,
+        ),
+    }
+    context['tasks'] = course.models.Task.objects.filter(
+        lesson=context['lesson'],
+        is_published=True,
+    ).order_by('difficulty')
+    
+    return django.shortcuts.render(
+        request=request,
+        template_name=template_name,
+        context=context,
+    )
+
+
+def task(request, pk: int):
+    template_name = 'course/task.html'
+    
+    context = {
+        'task': django.shortcuts.get_object_or_404(
+            course.models.Task.objects,
+            id=pk,
+            is_published=True,
+        ),
+    }
+    context['examples'] = course.models.Example.objects.filter(
+        task=context['task'],
+        is_published=True,
+    )
+    
+    return django.shortcuts.render(
+        request=request,
+        template_name=template_name,
+        context=context,
     )
