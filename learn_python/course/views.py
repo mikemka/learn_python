@@ -26,7 +26,10 @@ def introduction(request, pk: int):
             is_published=True,
         ),
     }
-    context['lessons'] = course.models.Lesson.objects.filter(course=context['course'])
+    context['lessons'] = course.models.Lesson.objects.filter(
+        course=context['course'],
+        is_published=True,
+    )
     
     return django.shortcuts.render(
         request=request,
