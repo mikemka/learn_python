@@ -6,7 +6,7 @@
 <div class="container">
     <h1 class="display-2 fw-bold my-4">
         {% if user.is_authenticated %}
-        Добро пожаловать, {% if user.first_name %}{{ user.first_name }}{% else %}@{{ user.username }}{% endif %}
+        Добро пожаловать, {% if user.first_name %}{{ user.first_name }}{% else %}@{{ user.username }}{% endif %}!
         {% else %}Выберите свой курс{% endif %}
     </h1>
     <div class="row">

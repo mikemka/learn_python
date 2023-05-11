@@ -2,6 +2,9 @@ body {
     --custom: #E94F37;
     --custom-dark: #393E41;
 }
+code {
+    color: var(--custom) !important;
+}
 img {
     max-width: 100% !important;
     height: auto;
