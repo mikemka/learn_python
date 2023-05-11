@@ -2,7 +2,7 @@ body {
     --custom: #E94F37;
     --custom-dark: #393E41;
 }
-code {
+p code {
     color: var(--custom) !important;
 }
 img {
