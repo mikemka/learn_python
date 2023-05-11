@@ -1,5 +1,6 @@
 from django.contrib import admin
 from course.models import Example, Task, Lesson, Course, Tag
+from course.forms import CourseAdminForm, LessonAdminForm, TaskAdminForm
 
 
 admin.AdminSite.site_header = 'Cервисы администрирования'
@@ -11,6 +12,7 @@ admin.AdminSite.index_title = 'Python-хендбук'
 class TaskAdmin(admin.ModelAdmin):
     list_display = ('title', 'lesson', 'get_time_limit', 'get_memory_limit', 'difficulty')
     list_display_links = ('title',)
+    form = TaskAdminForm
 
 
 @admin.register(Example)
@@ -22,11 +24,13 @@ class ExampleAdmin(admin.ModelAdmin):
 @admin.register(Lesson)
 class LessonAdmin(admin.ModelAdmin):
     list_display = ('title', 'course')
+    form = LessonAdminForm
 
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
     list_display = ('title', 'is_published')
+    form = CourseAdminForm
 
 
 @admin.register(Tag)

@@ -2,7 +2,6 @@ import django.db.models
 import django.utils.safestring
 import course.validators
 import colorfield.fields
-import tinymce.models
 
 
 class Tag(django.db.models.Model):
@@ -55,7 +54,7 @@ class Course(django.db.models.Model):
         verbose_name='Лид', 
         max_length=250,
     )
-    introduction = tinymce.models.HTMLField(
+    introduction = django.db.models.TextField(
         verbose_name='Вступление',
     )
     tags = django.db.models.ManyToManyField(
@@ -80,7 +79,7 @@ class Lesson(django.db.models.Model):
         verbose_name='Название', 
         max_length=150,
     )
-    theory = tinymce.models.HTMLField(
+    theory = django.db.models.TextField(
         verbose_name='Теория',
     )
     course = django.db.models.ForeignKey(
@@ -139,7 +138,7 @@ class Task(django.db.models.Model):
         max_length=100,
         default='стандартный вывод или output.txt',
     )
-    text = tinymce.models.HTMLField(
+    text = django.db.models.TextField(
         verbose_name='Текст задания',
     )
     input_format = django.db.models.TextField(
