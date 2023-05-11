@@ -144,12 +144,10 @@ class Task(django.db.models.Model):
     input_format = django.db.models.TextField(
         verbose_name='Формат ввода',
         blank=True,
-        null=True,
     )
     output_format = django.db.models.TextField(
         verbose_name='Формат вывода',
         blank=True,
-        null=True,
     )
     lesson = django.db.models.ForeignKey(
         verbose_name='Урок',
@@ -166,7 +164,6 @@ class Task(django.db.models.Model):
         verbose_name='Решение автора',
         default='<pre class="language-python">&nbsp;</pre>',
         blank=True,
-        null=True,
     )
 
     class Meta:
