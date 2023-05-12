@@ -28,7 +28,7 @@
             <li class="lead">
                 <a
                     href="{% url 'course_task' pk=task.id  %}"
-                    class="task-difficulty-before-{{ task.difficulty }}"
+                    class="task-difficulty-before-{{ task.difficulty }} color-transition"
                 >
                     <span class="fw-semibold">{{ task.title }}</span>
                 </a>

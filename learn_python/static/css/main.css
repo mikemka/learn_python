@@ -36,6 +36,9 @@ pre {
 .accordion-button:hover {
     color: var(--custom) !important;
 }
+.color-transition {
+    transition: color .15s ease-in-out;
+}
 .form-control:focus {
     color: #ffffff;
     background-color: #303030;
