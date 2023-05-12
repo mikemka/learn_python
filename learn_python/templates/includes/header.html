@@ -3,9 +3,9 @@
 
 <header class="p-3">
     <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center mb-md-0">
-                <li><a href="{% url 'homepage' %}" class="nav-link px-2 text-white">Python-хэндбук</a></li>
+        <div class="d-flex flex-wrap align-items-center justify-content-between">
+            <ul class="nav col-auto me-auto justify-content-center mb-md-0">
+                <li><a href="{% url 'homepage' %}" class="nav-link px-2 text-white" style="font-size: larger;">Python-хэндбук</a></li>
             </ul>
             {% if request.path != login_url and request.path != registration_url %}
                 {% if request.user.is_authenticated %}

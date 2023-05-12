@@ -33,6 +33,9 @@ pre {
 .accordion-button::after {
     display: none;
 }
+.accordion-button:hover {
+    color: var(--custom) !important;
+}
 .form-control:focus {
     color: #ffffff;
     background-color: #303030;
