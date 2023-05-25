@@ -91,6 +91,12 @@
 
 <script src="{% static 'js/fullpage.min.js' %}"></script>
 <script>
-    new fullpage('#fullpage', {credits: {label: 'fullPage.js'}});
+    new fullpage(
+        '#fullpage',
+        {
+            credits: {label: 'fullPage.js'},
+            licenseKey: 'gplv3-license'
+        }
+    );
 </script>
 {% endblock content %}
