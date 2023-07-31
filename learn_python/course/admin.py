@@ -1,6 +1,6 @@
 from django.contrib import admin
-from course.models import Example, Task, Lesson, Course, Tag
-from course.forms import CourseAdminForm, LessonAdminForm, TaskAdminForm
+from course.models import Example, Task, Lesson, Course, Tag, PrivateMaterial
+from course.forms import CourseAdminForm, LessonAdminForm, TaskAdminForm, PrivateMaterialAdminForm
 
 
 admin.AdminSite.site_header = 'Cервисы администрирования'
@@ -39,3 +39,8 @@ class TagAdmin(admin.ModelAdmin):
     list_display_links = ('name', 'render_tag', 'render_tag_outline')
     fields = ('name', 'background_color', 'render_tag', 'render_tag_outline')
     readonly_fields = ('render_tag', 'render_tag_outline')
+
+
+@admin.register(PrivateMaterial)
+class PrivateMaterialAdmin(admin.ModelAdmin):
+    form = PrivateMaterialAdminForm

@@ -7,4 +7,5 @@ urlpatterns = [
     django.urls.path('<int:pk>/', course.views.introduction, name='course_introduction'),
     django.urls.path('lesson/<int:pk>/', course.views.lesson, name='course_lesson'),
     django.urls.path('task/<int:pk>/', course.views.task, name='course_task'),
+    django.urls.path('material/<int:pk>/', course.views.material, name='material'),
 ]

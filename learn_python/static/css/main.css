@@ -149,3 +149,8 @@ table p {margin: 0;}
     50.6% {opacity: 0}
     100% {opacity: 0}
 }
+@media screen and (width <= 767px) {
+    .d-more-767 {
+        display: none;
+    }
+}

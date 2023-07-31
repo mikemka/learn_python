@@ -1,13 +1,21 @@
 import django.shortcuts
 import course.models
 import django.db.models
+from django.http import HttpResponseNotFound
 
 
 def overview(request):
     template_name = 'course/overview.html'
+    
+    courses_private = course.models.Course.objects.filter(is_published=True, private=True).prefetch_related('tags', 'access')
+    materials = course.models.PrivateMaterial.objects.filter(is_published=True).prefetch_related('access')
+    
     context = {
-        'courses': course.models.Course.objects.filter(is_published=True).prefetch_related('tags'),
+        'courses': course.models.Course.objects.filter(is_published=True, private=False).prefetch_related('tags'),
+        'courses_private': [i for i in courses_private if request.user in i.access.all()],
+        'materials': [i for i in materials if request.user in i.access.all()],
     }
+    
     
     return django.shortcuts.render(
         request=request,
@@ -74,6 +82,29 @@ def task(request, pk: int):
         task=context['task'],
         is_published=True,
     )
+    
+    return django.shortcuts.render(
+        request=request,
+        template_name=template_name,
+        context=context,
+    )
+
+
+def material(request, pk: int):
+    template_name = 'course/material.html'
+    
+    material = django.shortcuts.get_object_or_404(
+        course.models.PrivateMaterial,
+        id=pk,
+        is_published=True,
+    )
+
+    context = {
+        'material': material,
+    }
+    
+    if request.user not in material.access.all():
+        return HttpResponseNotFound()
     
     return django.shortcuts.render(
         request=request,

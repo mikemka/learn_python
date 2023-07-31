@@ -2,6 +2,7 @@ import django.db.models
 import django.utils.safestring
 import course.validators
 import colorfield.fields
+import django.contrib.auth.models
 
 
 class Tag(django.db.models.Model):
@@ -65,7 +66,15 @@ class Course(django.db.models.Model):
         verbose_name='Опубликовано',
         default=True,
     )
-
+    private = django.db.models.BooleanField(
+        verbose_name='Сделать курс приватным',
+        default=False,
+    )
+    access = django.db.models.ManyToManyField(
+        verbose_name='Пользователи с доступом к курсу',
+        to=django.contrib.auth.models.User,
+    )
+    
     class Meta:
         verbose_name = 'курс'
         verbose_name_plural = 'курс'
@@ -220,3 +229,33 @@ class Example(django.db.models.Model):
     
     def __str__(self) -> str:
         return str(self.id)
+
+
+class PrivateMaterial(django.db.models.Model):
+    title = django.db.models.CharField(
+        verbose_name='Название', 
+        max_length=150,
+    )
+    text = django.db.models.TextField(
+        verbose_name='Текст',
+    )
+    lead = django.db.models.TextField(
+        verbose_name='Лид', 
+        max_length=250,
+        blank=True,
+    )
+    is_published = django.db.models.BooleanField(
+        verbose_name='Опубликовано',
+        default=True,
+    )
+    access = django.db.models.ManyToManyField(
+        verbose_name='Пользователи с доступом к материалу',
+        to=django.contrib.auth.models.User,
+    )
+
+    class Meta:
+        verbose_name = 'приватный материал'
+        verbose_name_plural = 'приватные материалы'
+    
+    def __str__(self) -> str:
+        return self.title
