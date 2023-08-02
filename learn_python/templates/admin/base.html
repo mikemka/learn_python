@@ -133,21 +133,43 @@ file_picker_callback: function (cb, value, meta) {
 
   input.click();
 },
-plugins: 'print preview importcss tinydrive searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media template codesample code table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists  wordcount imagetools textpattern noneditable help charmap quickbars emoticons blockquote',
+extended_valid_elements: 'span[class|style|data-atom-id]',
+plugins: 'equation-editor print preview importcss tinydrive searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media template codesample code table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists  wordcount imagetools textpattern noneditable help charmap quickbars emoticons blockquote',
 menubar: 'edit view insert format tools table tc',
-toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media pageembed template link anchor codesample code | a11ycheck ltr rtl | showcomments addcomment',
+toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | equation-editor | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen preview save print | insertfile image media pageembed template link anchor codesample code | a11ycheck ltr rtl | showcomments addcomment',
 codesample_languages: [
+  {text: 'Python', value: 'python'},
   {text: 'HTML/XML', value: 'markup'},
   {text: 'JavaScript', value: 'javascript'},
   {text: 'CSS', value: 'css'},
   {text: 'PHP', value: 'php'},
   {text: 'Ruby', value: 'ruby'},
-  {text: 'Python', value: 'python'},
   {text: 'Java', value: 'java'},
   {text: 'C', value: 'c'},
   {text: 'C#', value: 'csharp'},
   {text: 'C++', value: 'cpp'}
 ],
+equation_editor_config: {
+  url: '{% static "tinymce/js/tinymce/plugins/equation-editor/editor/equation_editor.html" %}',
+  origin: document.location.origin,
+  title: 'Equation Editor',
+  space_after_content: '&nbsp;',
+  btn_cancel_text: 'Cancel',
+  btn_ok_text: 'Insert',
+  mathlive_config: {
+    smartMode: true,
+  },
+},
+equation_editor_group: 'basic',
+equation_editor_button_groups: {
+  basic: [
+    {
+      name: 'Numbers',
+      buttons: '1 2 3 4 \\pm \\dot',
+    },
+  ],
+},
+equation_editor_button_bar: '1 2 3 4 \\pm \\dot',
 image_title: true,
 autosave_ask_before_unload: true,
 automatic_uploads: true,

@@ -38,10 +38,14 @@
     {% endif %}
 
     <h2 class="display-6 mb-0 mt-5">Публичный доступ</h2>
+    {% if courses %}
     <div class="row">
         {% for course in courses %}
         {% include 'includes/course_card.html' %}
         {% endfor %}
     </div>
+    {% else %}
+    <p class="lead">Отсутствуют курсы с публичным доступом.</p>
+    {% endif %}
 </div>
 {% endblock content %}
