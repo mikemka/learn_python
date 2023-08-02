@@ -43,4 +43,6 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(PrivateMaterial)
 class PrivateMaterialAdmin(admin.ModelAdmin):
+    list_display = ('title', 'lead', 'is_published')
+    fields = ('title', 'lead', 'text', 'access', 'is_published')
     form = PrivateMaterialAdminForm

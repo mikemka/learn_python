@@ -9,4 +9,5 @@ urlpatterns = [
     django.urls.path('profile/', users.views.profile, name='profile'),
     django.urls.path('login/', users.views.LoginUser.as_view(), name='login'),
     django.urls.path('registration/', users.views.RegisterUser.as_view(), name='registration'),
+    django.urls.path('board/<slug:key>/', users.views.board, name='board')
 ]

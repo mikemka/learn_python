@@ -1,0 +1,17 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex flex-column" style="min-height: 100vh;">
+    {% include 'includes/header.html' %}
+    <style>
+        iframe {
+            width: 100vw !important;
+            height: 80vh !important;
+        }
+    </style>
+    <div class="text-center w-100">
+        {{ board.embed|safe }}
+    </div>
+</div>
+{% endblock content %}

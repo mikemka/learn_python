@@ -4,6 +4,7 @@ import django.views.generic
 import django.shortcuts
 import django.urls
 import users.forms
+from users import models
 
 
 class RegisterUser(django.views.generic.CreateView):
@@ -51,4 +52,20 @@ def profile(request):
         request=request,
         template_name=template_name,
         context={'form': form},
+    )
+
+
+def board(request, key):
+    template_name = 'users/board.html'
+    context = {
+        'board': django.shortcuts.get_object_or_404(
+            models.Board,
+            key=key,
+        )
+    }
+    
+    return django.shortcuts.render(
+        request=request,
+        template_name=template_name,
+        context=context,
     )

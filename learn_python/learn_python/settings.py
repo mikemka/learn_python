@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'colorfield',
     'course',
     'main',
+    'users',
 ]
 
 MIDDLEWARE = [

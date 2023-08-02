@@ -243,6 +243,7 @@ class PrivateMaterial(django.db.models.Model):
         verbose_name='Лид', 
         max_length=250,
         blank=True,
+        default=''
     )
     is_published = django.db.models.BooleanField(
         verbose_name='Опубликовано',
