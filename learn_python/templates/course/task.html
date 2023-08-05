@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li class="breadcrumb-item">
-                <a href="{% url 'course_lesson' pk=task.lesson.course.id %}">{{ task.lesson.title }}</a>
+                <a href="{% url 'course_lesson' pk=task.lesson.id %}">{{ task.lesson.title }}</a>
             </li>
             <li class="breadcrumb-item active mb-3 task-difficulty-{{ task.difficulty }}" aria-current="page">
                 {{ task.title }}
