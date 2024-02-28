@@ -21,7 +21,9 @@
     </div>
 
     {% if tasks %}
-    <section class="mt-4 pt-3 course-containment">
+    <a href="{% url 'course_task' pk=tasks.0.id  %}" class="btn btn-custom mt-3">Начать выполнение заданий</a>
+
+    <section class="mt-2 pt-3 course-containment">
         <h2 class="display-5 fw-bold">Задания</h2>
         <ul class="list-unstyled">
             {% for task in tasks %}
@@ -36,6 +38,13 @@
             {% endfor %}
         </ul>
     </section>
+    {% endif %}
+
+    {% if next_lesson %}
+    <a href="{% url 'course_lesson' pk=next_lesson.id  %}" class="btn btn-custom mt-3">Следующий урок</a>
+    {% else %}
+    <p class="mt-4 mb-0 fw-semibold lead">Это - последний урок в этом курсе</p>
+    <a href="{% url 'course_overview'  %}" class="btn btn-custom mt-3">Ко всем курсам</a>
     {% endif %}
 </div>
 {% endblock content %}

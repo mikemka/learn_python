@@ -56,10 +56,20 @@ def lesson(request, pk: int):
             is_published=True,
         ),
     }
+    
     context['tasks'] = course.models.Task.objects.filter(
         lesson=context['lesson'],
         is_published=True,
     ).order_by('difficulty')
+    
+    next_lesson = course.models.Lesson.objects.filter(
+        course=context['lesson'].course,
+        id__gt=pk,
+        is_published=True,
+    )
+    
+    if next_lesson.exists():
+        context['next_lesson'] = next_lesson.first()
     
     return django.shortcuts.render(
         request=request,
@@ -78,6 +88,7 @@ def task(request, pk: int):
             is_published=True,
         ),
     }
+    
     context['examples'] = course.models.Example.objects.filter(
         task=context['task'],
         is_published=True,

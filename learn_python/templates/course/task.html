@@ -95,6 +95,8 @@
             {% endif %}
         </div>
     </div>
-
+    <a class="btn btn-custom mb-3" href="{% url 'course_lesson' pk=task.lesson.id  %}">
+        Вернуться к уроку
+    </a>
 </div>
 {% endblock content %}
